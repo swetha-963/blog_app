@@ -1,0 +1,143 @@
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0077ff;
+  text-decoration: none;
+}
+
+.signin {
+  color: #0077ff;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #0077ff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.signin:hover {
+  background: #0077ff;
+  color: #fff;
+}
+
+.create-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.create-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 40px 35px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.create-box h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px 0 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"],
+textarea,
+input[type="file"],
+select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #0077ff;
+}
+
+select {
+  background: #fff;
+  cursor: pointer;
+}
+
+.publish-btn {
+  margin-top: 25px;
+  padding: 12px;
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.publish-btn:hover {
+  background: #005fcc;
+}
+
+
+
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .create-box {
+    padding: 30px 20px;
+  }
+
+  .create-box h1 {
+    font-size: 24px;
+  }
+
+  .publish-btn {
+    font-size: 15px;
+  }
+}

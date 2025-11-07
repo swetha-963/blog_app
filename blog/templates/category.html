@@ -1,0 +1,43 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ category.name }} - Blogify</title>
+  <link rel="stylesheet" href="{% static 'css/category.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="{% url 'home' %}" class="logo">Blogify</a>
+    <a href="{% url 'crtblog' %}" class="btn">Create Blog</a>
+  </nav>
+
+  <header class="category-header">
+    <h1>#{{ category.name }}</h1>
+    <p>Explore the latest posts in this category</p>
+  </header>
+
+  <section class="posts-container">
+    {% for blog in blogs %}
+      <div class="post-card">
+        {% if blog.image %}
+          <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="post-image">
+        {% else %}
+          <img src="{% static 'images/default.jpg' %}" alt="No image" class="post-image">
+        {% endif %}
+        <div class="post-overlay">
+          <h3>{{ blog.title }}</h3>
+          <p>{{ blog.content|truncatewords:15 }}</p>
+        </div>
+      </div>
+    {% empty %}
+      <p class="no-posts">No posts available in this category yet.</p>
+    {% endfor %}
+  </section>
+
+</body>
+</html> -->

@@ -1,0 +1,95 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Register</title>
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+  <div class="main">
+    <h2>Create Your Account</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>Username</p>
+      <input type="text" name="username" required>
+
+      <p>Email</p>
+      <input type="email" name="email" required>
+
+      <p>Password</p>
+      <input type="password" name="password" required>
+
+      <p>Profile Picture (optional)</p>
+      <input type="file" name="image" accept="image/*">
+
+      <input type="submit" value="Register">
+      <p class="login-link">Already have an account? <a href="{% url 'loginusr' %}">Login</a></p>
+    </form>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Blogify</title>
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="register-wrapper">
+    <div class="register-box">
+      <h2>Create Your Account</h2>
+      <p class="subtitle">Join Blogify and start sharing your ideas.</p>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Enter your username" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+
+        <label>Profile Picture (optional)</label>
+        <input type="file" name="image" accept="image/*">
+
+        <button type="submit" class="register-btn">Register</button>
+      </form>
+
+      <p class="login-link">
+        Already have an account? <a href="{% url 'loginusr' %}">Login here</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

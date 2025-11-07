@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Post - Blogify</title>
+  <link rel="stylesheet" href="{% static 'css/edit_post.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="{% url 'home' %}" class="logo">Blogify</a>
+    <a href="{% url 'crtblog' %}" class="btn">Create Blog</a>
+  </nav>
+
+  <div class="edit-wrapper">
+    <div class="edit-box">
+      <h2>Edit Your Post 📝</h2>
+      <p class="subtitle">Update your blog content and image below.</p>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Title</label>
+        <input type="text" name="title" value="{{ post.title }}" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="6" required>{{ post.content }}</textarea>
+
+        <label>Change Image (optional)</label>
+        <input type="file" name="image" accept="image/*">
+
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="Current Image" class="preview">
+        {% endif %}
+
+        <button type="submit" class="save-btn">Update Post</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

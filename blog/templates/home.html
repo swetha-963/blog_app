@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Blogify</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="{% url 'home' %}" class="logo">Blogify</a>
+        </div>
+
+        <div class="nav-center">
+            <form method="GET" action="{% url 'home' %}" class="search-bar">
+                <input type="text" name="q" placeholder="Search posts..." value="{{ query|default:'' }}">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+
+        <div class="nav-right">
+            <a href="{% url 'crtblog' %}" class="btn primary">Create</a>
+            <a href="{% url 'loginusr' %}" class="btn outline">Sign In</a>
+            <a href="{% url 'logout' %}" class="btn outline">Logout</a>
+        </div>
+    </nav>
+
+
+    <main class="main">
+        <h1>Discover Inspiring Blogs</h1>
+        <p class="subtitle">Share your thoughts and ideas with the world.</p>
+
+        <div class="category-bar">
+            <a href="{% url 'home' %}" 
+               class="category-btn {% if not active_filter and not active_category %}active{% endif %}">
+               All
+            </a>
+            <a href="?filter=trending" 
+               class="category-btn {% if active_filter == 'trending' %}active{% endif %}">
+               🔥 Trending
+            </a>
+            <a href="?filter=latest" 
+               class="category-btn {% if active_filter == 'latest' %}active{% endif %}">
+               🕓 Latest
+            </a>
+
+            {% for cat in categories %}
+            <a href="?category={{ cat.id }}" 
+               class="category-btn {% if active_category == cat.id %}active{% endif %}">
+               {{ cat.name }}
+            </a>
+            {% endfor %}
+        </div>
+
+
+        <div class="blog-container">
+            {% if blogs %}
+                {% for blog in blogs %}
+                <div class="blog-card">
+                    <div class="blog-header">
+                        <a href="{% url 'profile' blog.author.username %}">
+                            {% if blog.author.profile.image %}
+                            <img src="{{ blog.author.profile.image.url }}" alt="{{ blog.author.username }}" class="profile-pic">
+                            {% else %}
+                            <img src="{% static 'images/default.jpg' %}" alt="Default" class="profile-pic">
+                            {% endif %}
+                        </a>
+                        <div class="author-info">
+                            <strong>{{ blog.author.username }}</strong>
+                            <small>{{ blog.created_at|date:"M d, Y" }}</small>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'post_detail' blog.id %}">
+                        {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-image">
+                        {% endif %}
+                    </a>
+
+                    <div class="blog-content">
+                        <h3>{{ blog.title }}</h3>
+                        <p>{{ blog.content|truncatechars:120 }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-posts">No blogs yet. Create one now!</p>
+            {% endif %}
+        </div>
+    </main>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navRight = document.querySelector(".nav-right");
+        if (menuToggle) {
+            menuToggle.addEventListener("click", () => {
+                navRight.classList.toggle("active");
+            });
+        }
+    </script>
+</body>
+
+</html>

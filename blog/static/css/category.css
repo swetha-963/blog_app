@@ -1,0 +1,151 @@
+/* 
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  color: #222;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0077ff;
+  text-decoration: none;
+}
+
+.btn {
+  background: #0077ff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #005fcc;
+}
+
+.category-header {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.category-header h1 {
+  font-size: 32px;
+  color: #0077ff;
+  margin-bottom: 10px;
+}
+
+.category-header p {
+  color: #555;
+  font-size: 15px;
+}
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 30px 40px 60px;
+}
+
+.post-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  background: #fff;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+}
+
+.post-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: 0.4s ease;
+}
+
+.post-card:hover .post-image {
+  filter: brightness(75%);
+}
+
+.post-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: #fff;
+  padding: 15px;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.post-card:hover .post-overlay {
+  opacity: 1;
+}
+
+.post-overlay h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.post-overlay p {
+  margin-top: 5px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.no-posts {
+  text-align: center;
+  color: #777;
+  grid-column: 1/-1;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .category-header h1 {
+    font-size: 26px;
+  }
+
+  .posts-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-header h1 {
+    font-size: 22px;
+  }
+
+  .post-overlay h3 {
+    font-size: 16px;
+  }
+
+  .post-overlay p {
+    font-size: 12px;
+  }
+} */

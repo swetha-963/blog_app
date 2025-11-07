@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Blog - Blogify</title>
+  <link rel="stylesheet" href="{% static 'css/crtblog.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="{% url 'home' %}" class="logo">Blogify</a>
+    <a href="{% url 'loginusr' %}" class="signin">Sign In</a>
+  </nav>
+
+  <div class="create-wrapper">
+    <div class="create-box">
+      <h1>Create Your Blog ✍️</h1>
+      <p class="subtitle">Share your thoughts, stories, and ideas with the world.</p>
+
+      <form action="{% url 'crtblog' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Blog Title</label>
+        <input type="text" name="title" placeholder="Enter your blog title" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="8" placeholder="Write your blog content here..." required></textarea>
+
+        <label>Upload Image</label>
+        <input type="file" name="image" accept="image/*">
+
+        <button type="submit" class="publish-btn">Publish Blog</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
